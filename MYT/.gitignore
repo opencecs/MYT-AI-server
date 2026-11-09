@@ -1,0 +1,15 @@
+*.def
+debug_*.json
+cmd/
+myt-agent/
+myt-client-player/
+discuss/
+embedded/go_legacy.exe
+FFmpeg-n8.1/
+FFmpeg-n8.1.tar.gz
+
+# 签名工具和证书（不上传到 Git）
+sign/
+
+# 打包产物（安装包 + 在线更新 zip）
+dist/

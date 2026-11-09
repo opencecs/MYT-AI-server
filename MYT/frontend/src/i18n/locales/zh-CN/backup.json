@@ -1,0 +1,41 @@
+{
+  "selectDevice": "请先选择设备",
+  "subTab": { "phoneModel": "备份机型", "android": "备份云机" },
+  "phoneModel": {
+    "exportModel": "导出机型", "importModel": "导入机型",
+    "exportTitle": "导出机型", "importTitle": "导入机型",
+    "suffixPlaceholder": "备份后缀名",
+    "exportSuccess": "导出成功", "importSuccess": "导入成功",
+    "empty": "暂无备份机型", "noContainer": "该设备暂无云机",
+    "backupList": "备份列表", "delete": "删除", "deleteSuccess": "删除成功"
+  },
+  "android": {
+    "deviceMode": "设备", "localMode": "本地",
+    "slot": "坑位 {{n}}", "idle": "空闲",
+    "export": "导出", "import": "导入", "switchBackup": "恢复备份",
+    "switchBackupTitle": "恢复备份 · 坑位 {{n}}",
+    "exportTitle": "导出云机",
+    "exportNameLabel": "导出名称",
+    "exportNamePlaceholder": "留空自动生成（不含 .tar.gz 后缀）",
+    "exportDeviceHint": "备份将存储在设备上，不下载到本地",
+    "exportLocalHint": "备份将导出并下载到本地 PC",
+    "exportDeviceSuccess": "导出成功（存储在设备上）",
+    "exportLocalSuccess": "导出并下载成功",
+    "importTitle": "导入到坑位 {{n}}",
+    "importSuccess": "导入成功",
+    "backupList": "设备备份列表", "localBackupList": "本地备份列表",
+    "empty": "暂无备份",
+    "searchPlaceholder": "搜索备份...",
+    "newName": "导入后名称", "newNamePlaceholder": "留空使用原始名称",
+    "startAfterImport": "导入后开机", "keepMac": "保持原始MAC地址",
+    "download": "下载", "delete": "删除",
+    "deleteConfirmTitle": "确认删除备份",
+    "deleteConfirmMessage": "确定删除备份「{{name}}」吗？此操作不可恢复。",
+    "downloadTitle": "下载备份",
+    "deleteAfterDownloadHint": "下载后是否删除设备上的备份？",
+    "downloadAndDelete": "下载并删除", "downloadOnly": "仅下载",
+    "downloadSuccess": "下载成功", "deleteSuccess": "删除成功",
+    "openLocalDir": "本地备份目录", "openLocalDirFailed": "打开本地备份目录失败",
+    "allMachines": "所有云机", "slotMachinesTitle": "坑位 {{n}} 的所有云机"
+  }
+}

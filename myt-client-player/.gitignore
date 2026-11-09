@@ -1,0 +1,57 @@
+# Binaries and build output
+bin/
+*.exe
+*.exe~
+
+# DLLs — runtime-only (NOT checked in; NOT go:embed'd)
+go_legacy_ffdecode.dll
+avcodec-62.dll
+avutil-60.dll
+swresample-6.dll
+swscale-9.dll
+libwinpthread-1.dll
+
+# Build intermediates
+*.obj
+*.exp
+*.lib
+*.pdb
+
+# ffdecode/ build artifacts (root-level DLLs are go:embed'd and tracked)
+ffdecode/ffdecode.dll
+ffdecode/d3d11render.dll
+
+# Go build cache
+go.work
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Environment
+.env
+
+# Logs
+logs/
+
+
+# Temporary build scripts in ffdecode/
+ffdecode/_build*.bat
+ffdecode/build_*.ps1
+
+# 临时/备份文件
+ffdecode.dll.bak
+ffdecode_new.dll
+ffdecode/gcc_err.txt
+vendor/
+
+# 逆向/诊断工具（不入仓库）
+tools/
+temp/

@@ -1,0 +1,38 @@
+version: '3'
+
+vars:
+  APP_NAME: myt
+  BIN_DIR: bin
+  ROOT_DIR:
+    sh: pwd
+
+includes:
+  common:
+    taskfile: ./build/Taskfile.yml
+    dir: .
+  darwin:
+    taskfile: ./build/darwin/Taskfile.yml
+    dir: .
+  windows:
+    taskfile: ./build/windows/Taskfile.yml
+    dir: .
+
+tasks:
+  build:
+    summary: Builds the application
+    cmds:
+      - task: '{{if eq OS "windows"}}windows{{else}}darwin{{end}}:build'
+        vars:
+          ARCH: '{{.ARCH | default ARCH}}'
+          DEV: '{{.DEV}}'
+          EXTRA_TAGS: '{{.EXTRA_TAGS}}'
+
+  run:
+    summary: Runs the built application
+    cmds:
+      - task: '{{if eq OS "windows"}}windows{{else}}darwin{{end}}:run'
+
+  package:
+    summary: Packages the application
+    cmds:
+      - task: '{{if eq OS "windows"}}windows{{else}}darwin{{end}}:package'

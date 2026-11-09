@@ -1,0 +1,182 @@
+# cnb.cool/openmyt/myt-sdk-golang v0.0.0-20260501082541-73f966ef2b34
+## explicit; go 1.18
+cnb.cool/openmyt/myt-sdk-golang/rpa
+# github.com/adrg/xdg v0.5.3
+## explicit; go 1.19
+github.com/adrg/xdg
+github.com/adrg/xdg/internal/pathutil
+github.com/adrg/xdg/internal/userdirs
+# github.com/coder/websocket v1.8.14
+## explicit; go 1.23
+github.com/coder/websocket
+github.com/coder/websocket/internal/bpool
+github.com/coder/websocket/internal/errd
+github.com/coder/websocket/internal/util
+github.com/coder/websocket/internal/wsjs
+github.com/coder/websocket/wsjson
+# github.com/go-ole/go-ole v1.3.0
+## explicit; go 1.12
+github.com/go-ole/go-ole
+# github.com/godbus/dbus/v5 v5.2.2
+## explicit; go 1.20
+github.com/godbus/dbus/v5
+github.com/godbus/dbus/v5/introspect
+github.com/godbus/dbus/v5/prop
+# github.com/google/jsonschema-go v0.4.3
+## explicit; go 1.23.0
+github.com/google/jsonschema-go/jsonschema
+# github.com/jchv/go-winloader v0.0.0-20250406163304-c1995be93bd1
+## explicit; go 1.14
+github.com/jchv/go-winloader
+github.com/jchv/go-winloader/internal/loader
+github.com/jchv/go-winloader/internal/memloader
+github.com/jchv/go-winloader/internal/pe
+github.com/jchv/go-winloader/internal/vmem
+github.com/jchv/go-winloader/internal/winloader
+# github.com/kr/fs v0.1.0
+## explicit
+github.com/kr/fs
+# github.com/mattn/go-colorable v0.1.14
+## explicit; go 1.18
+github.com/mattn/go-colorable
+# github.com/mattn/go-isatty v0.0.20
+## explicit; go 1.15
+github.com/mattn/go-isatty
+# github.com/modelcontextprotocol/go-sdk v1.8.0
+## explicit; go 1.25.0
+github.com/modelcontextprotocol/go-sdk/auth
+github.com/modelcontextprotocol/go-sdk/internal/authutil
+github.com/modelcontextprotocol/go-sdk/internal/json
+github.com/modelcontextprotocol/go-sdk/internal/jsonrpc2
+github.com/modelcontextprotocol/go-sdk/internal/mcpgodebug
+github.com/modelcontextprotocol/go-sdk/internal/util
+github.com/modelcontextprotocol/go-sdk/internal/xcontext
+github.com/modelcontextprotocol/go-sdk/jsonrpc
+github.com/modelcontextprotocol/go-sdk/mcp
+github.com/modelcontextprotocol/go-sdk/oauthex
+# github.com/pkg/sftp v1.13.10
+## explicit; go 1.23.0
+github.com/pkg/sftp
+github.com/pkg/sftp/internal/encoding/ssh/filexfer
+github.com/pkg/sftp/internal/encoding/ssh/filexfer/openssh
+# github.com/q191201771/lal v0.37.4
+## explicit; go 1.18
+github.com/q191201771/lal/pkg/aac
+github.com/q191201771/lal/pkg/avc
+github.com/q191201771/lal/pkg/base
+github.com/q191201771/lal/pkg/gb28181
+github.com/q191201771/lal/pkg/h2645
+github.com/q191201771/lal/pkg/hevc
+github.com/q191201771/lal/pkg/hls
+github.com/q191201771/lal/pkg/httpflv
+github.com/q191201771/lal/pkg/httpts
+github.com/q191201771/lal/pkg/logic
+github.com/q191201771/lal/pkg/mpegts
+github.com/q191201771/lal/pkg/remux
+github.com/q191201771/lal/pkg/rtmp
+github.com/q191201771/lal/pkg/rtprtcp
+github.com/q191201771/lal/pkg/rtsp
+github.com/q191201771/lal/pkg/sdp
+# github.com/q191201771/naza v0.30.48
+## explicit; go 1.14
+github.com/q191201771/naza/pkg/bele
+github.com/q191201771/naza/pkg/bininfo
+github.com/q191201771/naza/pkg/circularqueue
+github.com/q191201771/naza/pkg/connection
+github.com/q191201771/naza/pkg/defertaskthread
+github.com/q191201771/naza/pkg/fake
+github.com/q191201771/naza/pkg/filesystemlayer
+github.com/q191201771/naza/pkg/mock
+github.com/q191201771/naza/pkg/nazaatomic
+github.com/q191201771/naza/pkg/nazabits
+github.com/q191201771/naza/pkg/nazabytes
+github.com/q191201771/naza/pkg/nazacolor
+github.com/q191201771/naza/pkg/nazaerrors
+github.com/q191201771/naza/pkg/nazahttp
+github.com/q191201771/naza/pkg/nazajson
+github.com/q191201771/naza/pkg/nazalog
+github.com/q191201771/naza/pkg/nazamd5
+github.com/q191201771/naza/pkg/nazanet
+github.com/q191201771/naza/pkg/nazareflect
+github.com/q191201771/naza/pkg/taskpool
+github.com/q191201771/naza/pkg/unique
+# github.com/segmentio/asm v1.1.3
+## explicit; go 1.17
+github.com/segmentio/asm/ascii
+github.com/segmentio/asm/base64
+github.com/segmentio/asm/cpu
+github.com/segmentio/asm/cpu/arm
+github.com/segmentio/asm/cpu/arm64
+github.com/segmentio/asm/cpu/cpuid
+github.com/segmentio/asm/cpu/x86
+github.com/segmentio/asm/internal/unsafebytes
+github.com/segmentio/asm/keyset
+# github.com/segmentio/encoding v0.5.4
+## explicit; go 1.23
+github.com/segmentio/encoding/ascii
+github.com/segmentio/encoding/iso8601
+github.com/segmentio/encoding/json
+# github.com/wailsapp/wails/v3 v3.0.0-alpha2.122
+## explicit; go 1.25.0
+github.com/wailsapp/wails/v3/internal/assetserver
+github.com/wailsapp/wails/v3/internal/assetserver/bundledassets
+github.com/wailsapp/wails/v3/internal/assetserver/webview
+github.com/wailsapp/wails/v3/internal/browser
+github.com/wailsapp/wails/v3/internal/capabilities
+github.com/wailsapp/wails/v3/internal/dbus/menu
+github.com/wailsapp/wails/v3/internal/dbus/notifier
+github.com/wailsapp/wails/v3/internal/debounce
+github.com/wailsapp/wails/v3/internal/debug
+github.com/wailsapp/wails/v3/internal/fileexplorer
+github.com/wailsapp/wails/v3/internal/git
+github.com/wailsapp/wails/v3/internal/go-common-file-dialog/cfd
+github.com/wailsapp/wails/v3/internal/hash
+github.com/wailsapp/wails/v3/internal/lo
+github.com/wailsapp/wails/v3/internal/mailbox
+github.com/wailsapp/wails/v3/internal/operatingsystem
+github.com/wailsapp/wails/v3/internal/optional
+github.com/wailsapp/wails/v3/internal/runtime
+github.com/wailsapp/wails/v3/internal/signal
+github.com/wailsapp/wails/v3/internal/sliceutil
+github.com/wailsapp/wails/v3/internal/tint
+github.com/wailsapp/wails/v3/internal/uuid
+github.com/wailsapp/wails/v3/internal/version
+github.com/wailsapp/wails/v3/internal/webview2/internal/w32
+github.com/wailsapp/wails/v3/internal/webview2/pkg/combridge
+github.com/wailsapp/wails/v3/internal/webview2/pkg/edge
+github.com/wailsapp/wails/v3/internal/webview2/webviewloader
+github.com/wailsapp/wails/v3/pkg/application
+github.com/wailsapp/wails/v3/pkg/errs
+github.com/wailsapp/wails/v3/pkg/events
+github.com/wailsapp/wails/v3/pkg/icons
+github.com/wailsapp/wails/v3/pkg/mac
+github.com/wailsapp/wails/v3/pkg/updater
+github.com/wailsapp/wails/v3/pkg/w32
+# github.com/yosida95/uritemplate/v3 v3.0.2
+## explicit; go 1.14
+github.com/yosida95/uritemplate/v3
+# golang.org/x/crypto v0.50.0
+## explicit; go 1.25.0
+golang.org/x/crypto/blowfish
+golang.org/x/crypto/chacha20
+golang.org/x/crypto/curve25519
+golang.org/x/crypto/internal/alias
+golang.org/x/crypto/internal/poly1305
+golang.org/x/crypto/ssh
+golang.org/x/crypto/ssh/internal/bcrypt_pbkdf
+# golang.org/x/oauth2 v0.35.0
+## explicit; go 1.24.0
+golang.org/x/oauth2
+golang.org/x/oauth2/internal
+# golang.org/x/sync v0.20.0
+## explicit; go 1.25.0
+golang.org/x/sync/errgroup
+# golang.org/x/sys v0.43.0
+## explicit; go 1.25.0
+golang.org/x/sys/cpu
+golang.org/x/sys/unix
+golang.org/x/sys/windows
+golang.org/x/sys/windows/registry
+# golang.org/x/time v0.15.0
+## explicit; go 1.25.0
+golang.org/x/time/rate

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MsixPackagingToolTemplate
+    xmlns="http://schemas.microsoft.com/msix/packaging/msixpackagingtool/template/2022">
+    <Settings
+        AllowTelemetry="false"
+        ApplyACLsToPackageFiles="true"
+        GenerateCommandLineFile="true"
+        AllowPromptForPassword="false">
+    </Settings>
+    <Installer
+        Path="myt"
+        Arguments=""
+        InstallLocation="C:\Program Files\MoYunTeng\MYT">
+    </Installer>
+    <PackageInformation
+        PackageName="MYT"
+        PackageDisplayName="MYT"
+        PublisherName="CN=MoYunTeng"
+        PublisherDisplayName="MoYunTeng"
+        Version="1.0.0.0"
+        PackageDescription="A MYT application">
+        <Capabilities>
+            <Capability Name="runFullTrust" />
+            
+        </Capabilities>
+        <Applications>
+            <Application
+                Id="com.moyunteng.myt"
+                Description="A MYT application"
+                DisplayName="MYT"
+                ExecutableName="myt"
+                EntryPoint="Windows.FullTrustApplication">
+                
+            </Application>
+        </Applications>
+        <Resources>
+            <Resource Language="en-us" />
+        </Resources>
+        <Dependencies>
+            <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
+        </Dependencies>
+        <Properties>
+            <Framework>false</Framework>
+            <DisplayName>MYT</DisplayName>
+            <PublisherDisplayName>MoYunTeng</PublisherDisplayName>
+            <Description>A MYT application</Description>
+            <Logo>Assets\AppIcon.png</Logo>
+        </Properties>
+    </PackageInformation>
+    <SaveLocation PackagePath="myt.msix" />
+    <PackageIntegrity>
+        <CertificatePath></CertificatePath>
+    </PackageIntegrity>
+</MsixPackagingToolTemplate>

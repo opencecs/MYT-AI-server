@@ -1,0 +1,24 @@
+EXPORTS
+    D3D11R_Create
+    D3D11R_CreateWithDevice
+    D3D11R_Destroy
+    D3D11R_GetDevice
+    D3D11R_IsWarp
+    D3D11R_CanRenderNV12
+    D3D11R_RenderBGRA
+    D3D11R_CopyTexture
+    D3D11R_ReadSlot
+    D3D11R_UvProbeSlot
+    D3D11R_RenderSlot
+    D3D11R_Represent
+    D3D11R_Resize
+    D3D11R_SetRotation
+    D3D11R_SetFill
+    D3D11R_Present
+    D3D11R_LumaProbeSlot
+    D3D11R_WgcInit
+    D3D11R_WgcInitMonitor
+    D3D11R_WgcFrameSize
+    D3D11R_WgcGrabFrame
+    D3D11R_WgcGrabFrameRect
+    D3D11R_WgcClose

@@ -1,0 +1,244 @@
+<div class="panel collapsed" id="panel-root">
+  <div class="sidebar" id="sidebar">
+    <div class="ib" data-act="tab:clarity" title="清晰度" id="sb-clarity">
+      <svg viewBox="0 0 24 24"><path d="M4 8v8"/><path d="M4 12h6"/><path d="M10 8v8"/><path d="M14 8h3a4 4 0 0 1 0 8h-3V8"/></svg>
+    </div>
+    <div class="ib" data-act="topmost" title="置顶" id="sb-topmost">
+      <svg viewBox="0 0 24 24"><path d="M12 17v5"/><path d="M9 17h6"/><path d="M5 14l2-9h10l2 9"/><path d="M7 14h10"/><rect x="9" y="2" width="6" height="3" rx="1"/></svg>
+    </div>
+    <div class="ib" data-act="rotate" title="横竖切换">
+      <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-9 9"/><path d="M3 12a9 9 0 0 1 9-9"/><path d="M18 9l3 3-3 3"/><path d="M6 15l-3-3 3-3"/></svg>
+    </div>
+    <div class="sep"></div>
+    <div class="ib" data-act="screenshot" title="截图">
+      <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+    </div>
+    <div class="ib" data-act="vol_up" title="音量+">
+      <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+    </div>
+    <div class="ib" data-act="vol_down" title="音量-">
+      <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+    </div>
+    <div class="sep"></div>
+    <div class="ib" data-act="tab:iploc" title="IP定位" id="sb-iploc">
+      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <div class="ib" data-act="tab:sms" title="接收短信" id="sb-sms" style="display:none">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <div class="ib" data-act="tab:upload" title="文件上传" id="sb-upload" style="display:none">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    </div>
+    <div class="ib" data-act="tab:contact" title="添加联系人" id="sb-contact">
+      <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+    </div>
+    <div class="sep"></div>
+    <div class="ib" data-act="arrange" title="排列窗口">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    </div>
+    <div class="ib" data-act="tab:batch" title="批量控制" id="sb-batch">
+      <svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="6" rx="1"/><rect x="2" y="14" width="8" height="6" rx="1"/><rect x="14" y="14" width="8" height="6" rx="1"/><path d="M12 8v3M6 14v-3h12v3"/></svg>
+      <span class="badge" id="batch-badge" style="display:none">0</span>
+    </div>
+    <div class="ib" data-act="tab:cam" title="摄像头/麦克风推流" id="sb-cam" style="display:none">
+      <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+    </div>
+    <div class="ib" data-act="tab:keymap" title="键盘映射" id="sb-keymap">
+      <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+    </div>
+  </div>
+  <div class="main" id="main-area" style="display:none">
+    <div class="panel-head">
+      <h2 id="panel-title">清晰度</h2>
+      <div class="close-btn" data-act="collapse" title="收起面板">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </div>
+    </div>
+    <div class="conn-bar" id="conn-bar">
+      <span class="dot"></span>
+      <span class="addr" id="conn-addr">--</span>
+      <span class="state" id="conn-state"></span>
+    </div>
+    <div class="content">
+      <div class="card" id="tab-clarity">
+        <div class="card-title">画质</div>
+        <div class="opt-grid">
+          <div class="opt-item" data-clarity="1">高清</div>
+          <div class="opt-item sel" data-clarity="2">标清</div>
+          <div class="opt-item" data-clarity="3">流畅</div>
+          <div class="opt-item" data-clarity="4">原画</div>
+        </div>
+        <div class="field-row block" style="margin-top:9px;border-bottom:none">
+          <div class="hint" style="font-size:10px;color:var(--text-3);line-height:1.6">清晰度即时生效;高画质对带宽要求更高,批量投屏建议标清。</div>
+        </div>
+      </div>
+      <div class="card" id="tab-iploc" style="display:none">
+        <div class="card-title">IP 定位</div>
+        <div class="field-row">
+          <div class="field-label">语言</div>
+          <div class="sselect" id="ip-lang-wrap">
+            <input class="sselect-input" id="ip-lang" placeholder="搜索语言..." autocomplete="off">
+            <div class="sselect-drop" id="ip-lang-drop"></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-label">定位 IP</div>
+          <input class="text-input" id="ip-input" placeholder="例: 23.247.138.215">
+        </div>
+        <div class="field-row block">
+          <button class="accent-btn" id="ip-btn">设置</button>
+          <div class="status-msg" id="ip-status"></div>
+        </div>
+        <div class="field-row" id="ip-last-row" style="display:none">
+          <div class="field-label">上次设置</div>
+          <div class="field-value" id="ip-last"></div>
+        </div>
+      </div>
+      <div class="card" id="tab-sms" style="display:none">
+        <div class="card-title">接收短信</div>
+        <div class="field-row">
+          <div class="field-label">号码</div>
+          <input class="text-input" id="sms-addr" placeholder="例: 13800138000">
+        </div>
+        <div class="field-row block">
+          <div class="field-label field-label-top">短信内容</div>
+          <textarea class="text-input sms-body" id="sms-body" placeholder="输入短信内容" rows="3"></textarea>
+        </div>
+        <div class="field-row block">
+          <button class="accent-btn" id="sms-btn">发送短信</button>
+          <div class="status-msg" id="sms-status"></div>
+        </div>
+      </div>
+      <div class="card" id="tab-contact" style="display:none">
+        <div class="card-title">添加联系人</div>
+        <div class="field-row">
+          <div class="field-label">姓名</div>
+          <input class="text-input" id="contact-name" placeholder="例: 张三">
+        </div>
+        <div class="field-row">
+          <div class="field-label">电话</div>
+          <input class="text-input" id="contact-tel" placeholder="例: 13800138000">
+        </div>
+        <div class="field-row block">
+          <button class="accent-btn" id="contact-btn">添加</button>
+          <div class="status-msg" id="contact-status"></div>
+        </div>
+      </div>
+      <div class="card" id="tab-upload" style="display:none">
+        <div class="card-title">文件上传</div>
+        <div class="upload-dropzone" id="upload-dropzone">
+          <div class="dropzone-text">点击选择或拖拽文件上传<br><span style="font-size:10px;opacity:.6">上传路径 /sdcard/upload，APK 自动安装</span></div>
+        </div>
+        <label class="field-row block" id="upload-autogrant-row" style="margin-top:6px;cursor:pointer;align-items:center;gap:5px;user-select:none">
+          <input type="checkbox" id="upload-autogrant" style="width:12px;height:12px;accent-color:var(--accent);margin:0">
+          <span style="font-size:10.5px;color:var(--text-2,var(--text-3))">安装后自动授予运行时权限（仅 .apk）</span>
+        </label>
+        <div class="status-msg" id="upload-status"></div>
+        <div class="upload-progress" id="upload-progress" style="display:none">
+          <div class="upload-progress-bar" id="upload-progress-bar"></div>
+        </div>
+        <div class="field-row" id="upload-file-row" style="display:none">
+          <div class="field-label">选中文件</div>
+          <div class="field-value" id="upload-filename"></div>
+        </div>
+        <div style="font-size:10px;color:var(--text-3);margin-top:5px">上传路径: /sdcard/upload</div>
+      </div>
+      <div class="card" id="tab-batch" style="display:none">
+        <div class="card-title">批量控制</div>
+        <div class="empty-state" id="batch-empty">
+          <div class="hint">未设置批量控制目标</div>
+        </div>
+        <div id="batch-list"></div>
+      </div>
+      <div class="card" id="tab-cam" style="display:none">
+        <div class="card-title">听筒</div>
+        <div class="krow">
+          <span style="flex:1"><span class="ktitle" id="speaker-label">播放设备声音</span><div class="ksub" id="speaker-status"></div></span>
+          <button class="accent-btn" id="speaker-btn" disabled style="width:auto;flex-shrink:0;padding:4px 10px;font-size:10.5px">开启听筒</button>
+        </div>
+        <div class="card-title" style="margin-top:12px">推流</div>
+        <div class="field-row">
+          <div class="field-label">摄像头</div>
+          <select class="text-input" id="cam-select" disabled>
+            <option value="">加载中...</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <div class="field-label">麦克风</div>
+          <select class="text-input" id="mic-select" disabled>
+            <option value="">不推音频</option>
+          </select>
+        </div>
+        <div class="field-row block">
+          <button class="accent-btn" id="cam-btn" disabled>开始推流</button>
+          <div class="status-msg" id="cam-status"></div>
+        </div>
+        <div style="font-size:10px;color:var(--text-3);margin-top:5px">将 PC 摄像头/麦克风推流到设备虚拟摄像头；选「扫码源」可把窗口画面喂给设备相机（App 扫码用）</div>
+      </div>
+      <div class="card" id="tab-keymap" style="display:none">
+        <div class="card-title">键盘映射</div>
+        <div class="procard">
+          <div class="srow">
+            <div class="proinfo">
+              <div class="proname" id="km-pro-name">未选择方案</div>
+              <div class="prometa" id="km-pro-meta">F9 快捷开关映射</div>
+            </div>
+            <div class="kswitch" id="km-switch"><span class="knob"></span></div>
+          </div>
+          <div class="srow" style="padding:6px 10px">
+            <div class="proinfo">
+              <div class="proname" style="font-size:11px">运行时显示按键提示</div>
+              <div class="prometa">游戏中画面上显示键位标记,不干扰操作</div>
+            </div>
+            <div class="tgl" id="km-hints"><span class="knob"></span></div>
+          </div>
+        </div>
+        <div class="sec">
+          <div class="sect">方案</div>
+          <div class="surface" style="margin-bottom:6px">
+            <div class="srow" style="padding:3px 4px">
+              <select class="text-input" id="km-preset-select" style="border:none;background:transparent"></select>
+            </div>
+          </div>
+          <div class="btnrow">
+            <button class="mini-btn" id="km-preset-new">新建</button>
+            <button class="mini-btn" id="km-rename">重命名</button>
+            <button class="mini-btn" id="km-preset-del">删除</button>
+            <button class="mini-btn" id="km-io-toggle">导入/导出</button>
+          </div>
+          <div class="status-msg" id="km-status"></div>
+          <div id="km-io-body" style="display:none;margin-top:6px">
+            <textarea class="text-input" id="km-import-ta" rows="4" placeholder="粘贴键位方案 JSON 后点导入"></textarea>
+            <div class="btnrow" style="margin-top:5px">
+              <button class="mini-btn" id="km-import-btn">导入</button>
+              <button class="mini-btn" id="km-export-btn">导出当前方案</button>
+            </div>
+          </div>
+        </div>
+        <div class="btnrow" id="km-edit-btnrow" style="margin-top:8px">
+          <button class="accent-btn" id="km-edit-btn">编辑键位</button>
+        </div>
+        <div id="km-editor" style="display:none">
+          <div class="sec">
+            <div class="sect">键位 · <span id="km-count">0</span></div>
+            <div class="surface" id="km-list"></div>
+            <div class="addgrid">
+              <button class="addtile" data-kmadd="tap"><span class="ai"><svg viewBox="0 0 24 24"><path d="M9 9l10 4-4.5 1.5L13.5 19z"/><path d="M5 5h.01"/></svg></span><span><div class="an">点击</div><div class="ad">技能 · 按钮</div></span></button>
+              <button class="addtile" data-kmadd="dpad"><span class="ai"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></span><span><div class="an">摇杆</div><div class="ad">WASD 移动</div></span></button>
+              <button class="addtile" data-kmadd="swipe"><span class="ai"><svg viewBox="0 0 24 24"><path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg></span><span><div class="an">滑动</div><div class="ad">定向拖动</div></span></button>
+              <button class="addtile" data-kmadd="android"><span class="ai"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 12h.01M11 12h.01M15 12h.01"/></svg></span><span><div class="an">系统键</div><div class="ad">返回 · 主页</div></span></button>
+            </div>
+          </div>
+          <div id="km-props"></div>
+          <div class="editbar">
+            <div class="et"><span class="edot"></span>编辑中 — 在画面上拖动标记调整位置</div>
+            <div class="btnrow">
+              <button class="accent-btn" id="km-done">完成并保存</button>
+              <button class="mini-btn" id="km-cancel" style="flex:.45">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

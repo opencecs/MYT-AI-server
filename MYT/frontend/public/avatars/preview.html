@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>Hermes Office - 角色动画预览</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a2e;color:#eee;font-family:-apple-system,sans-serif;padding:20px;min-height:100vh}
+h1{text-align:center;margin-bottom:6px;font-size:22px}
+.sub{text-align:center;color:#666;margin-bottom:20px;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:720px;margin:0 auto}
+.card{background:#16213e;border-radius:12px;padding:14px;text-align:center;border:1px solid #0f3460;transition:transform .2s}
+.card:hover{transform:translateY(-3px)}
+.cname{font-weight:700;font-size:13px;margin-bottom:2px}
+.crole{font-size:10px;color:#777;margin-bottom:6px}
+.anim-box{width:140px;height:150px;margin:0 auto 6px;background:#0d1b3e;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.tabs{display:flex;gap:3px;justify-content:center;margin-top:4px}
+.tab{padding:2px 7px;font-size:9px;border:1px solid #333;border-radius:3px;cursor:pointer;background:transparent;color:#888;transition:.15s}
+.tab:hover{border-color:#555;color:#ccc}
+.tab.on{background:#0f3460;border-color:#4a9eff;color:#4a9eff}
+.note{text-align:center;margin-top:20px;color:#555;font-size:11px}
+.err{color:#ff4444;font-size:11px;margin-top:4px;display:none}
+</style>
+</head>
+<body>
+<h1>Hermes Office 角色预览</h1>
+<p class="sub">6 角色 x 4 状态 = 24 个 Lottie 动画 | 点按钮切换</p>
+<div class="grid" id="g"></div>
+<p class="note">需要联网加载 lottie.min.js</p>
+<script>
+// 正确的 Lottie JSON 生成器
+function mkLottie(cfg) {
+  const {name, bodyColor, hatColor, animType} = cfg;
+  const W=200, H=220, FPS=24, CX=100;
+  let totalFrames;
+
+  // 动画关键帧定义
+  // 格式：Lottie animated property = {k: [keyframe, keyframe, ...]}
+  // keyframe = {t, s, i:{x,y}, o:{x,y}}  (s=start value, i=in tangent, o=out tangent)
+  let headPos, headRot, bodyPos, lArmPos, lArmRot, rArmPos, rArmRot, mouthH;
+
+  const EASE = {x:0.667, y:1};
+  const EASE_OUT = {x:0.333, y:0};
+
+  if (animType === 'idle') {
+    totalFrames = 72;
+    headPos = {k:[
+      {t:0,s:[CX,68,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:36,s:[CX,62,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:72,s:[CX,68,0]}
+    ]};
+    headRot = {k:0};
+    bodyPos = {k:[
+      {t:0,s:[CX,138,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:36,s:[CX,134,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:72,s:[CX,138,0]}
+    ]};
+    lArmPos = {k:[CX-26,120,0]};
+    lArmRot = {k:0};
+    rArmPos = {k:[CX+26,120,0]};
+    rArmRot = {k:0};
+    mouthH = 6;
+  }
+  else if (animType === 'working') {
+    totalFrames = 48;
+    headPos = {k:[
+      {t:0,s:[CX,68,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:12,s:[CX,72,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:24,s:[CX,68,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:36,s:[CX,72,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:48,s:[CX,68,0]}
+    ]};
+    headRot = {k:0};
+    bodyPos = {k:[CX,138,0]};
+    lArmPos = {k:[CX-26,120,0]};
+    lArmRot = {k:0};
+    rArmPos = {k:[
+      {t:0,s:[CX+26,120,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:6,s:[CX+26,116,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:12,s:[CX+26,120,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:18,s:[CX+28,117,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:24,s:[CX+26,120,0]}
+    ]};
+    rArmRot = {k:0};
+    mouthH = 6;
+  }
+  else if (animType === 'thinking') {
+    totalFrames = 72;
+    headPos = {k:[
+      {t:0,s:[CX,68,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:24,s:[CX+6,66,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:48,s:[CX,68,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:72,s:[CX+6,66,0]}
+    ]};
+    headRot = {k:[
+      {t:0,s:[0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:24,s:[12],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:48,s:[0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:72,s:[12]}
+    ]};
+    bodyPos = {k:[CX,138,0]};
+    lArmPos = {k:[
+      {t:0,s:[CX-26,120,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:12,s:[CX-10,78,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:72,s:[CX-10,78,0]}
+    ]};
+    lArmRot = {k:[
+      {t:0,s:[0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:12,s:[30],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:72,s:[30]}
+    ]};
+    rArmPos = {k:[CX+26,120,0]};
+    rArmRot = {k:0};
+    mouthH = 6;
+  }
+  else { // celebrate
+    totalFrames = 48;
+    headPos = {k:[
+      {t:0,s:[CX,68,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:12,s:[CX,48,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:24,s:[CX,68,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:36,s:[CX,48,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:48,s:[CX,68,0]}
+    ]};
+    headRot = {k:0};
+    bodyPos = {k:[
+      {t:0,s:[CX,138,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:12,s:[CX,122,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:24,s:[CX,138,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:36,s:[CX,122,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:48,s:[CX,138,0]}
+    ]};
+    lArmPos = {k:[
+      {t:0,s:[CX-26,120,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:8,s:[CX-38,76,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:24,s:[CX-26,120,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:32,s:[CX-38,76,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:48,s:[CX-26,120,0]}
+    ]};
+    lArmRot = {k:[
+      {t:0,s:[0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:8,s:[-45],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:24,s:[0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:32,s:[-45],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:48,s:[0]}
+    ]};
+    rArmPos = {k:[
+      {t:0,s:[CX+26,120,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:8,s:[CX+38,76,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:24,s:[CX+26,120,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:32,s:[CX+38,76,0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:48,s:[CX+26,120,0]}
+    ]};
+    rArmRot = {k:[
+      {t:0,s:[0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:8,s:[45],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:24,s:[0],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:32,s:[45],i:{x:EASE.x,y:EASE.y},o:{x:EASE_OUT.x,y:EASE_OUT.y}},
+      {t:48,s:[0]}
+    ]};
+    mouthH = 12;
+  }
+
+  // 构建图层
+  var layers = [
+    // 6 - 头发/帽子（跟随头）
+    {
+      ddd:0, ind:6, ty:4, nm:"Hair", sr:1,
+      ks:{o:{k:100}, r:headRot, p:headPos, a:{k:[0,0,0]}, s:{k:[100,100,100]}},
+      ao:0,
+      shapes:[
+        {ty:"rc", d:1, s:{k:[76,16]}, p:{k:[0,-38]}, r:{k:6}, nm:"Hat"},
+        {ty:"fl", c:{k:hatColor}, o:{k:100}, r:1}
+      ],
+      ip:0, op:totalFrames, st:0
+    },
+    // 5 - 头
+    {
+      ddd:0, ind:5, ty:4, nm:"Head", sr:1,
+      ks:{o:{k:100}, r:headRot, p:headPos, a:{k:[0,0,0]}, s:{k:[100,100,100]}},
+      ao:0,
+      shapes:[
+        {ty:"el", p:{k:[0,0]}, s:{k:[72,72]}, nm:"Head"},
+        {ty:"fl", c:{k:[1,0.87,0.75,1]}, o:{k:100}, r:1},
+        {ty:"el", p:{k:[-12,-4]}, s:{k:[7,9]}, nm:"EyeL"},
+        {ty:"fl", c:{k:[0.15,0.15,0.15,1]}, o:{k:100}, r:1},
+        {ty:"el", p:{k:[12,-4]}, s:{k:[7,9]}, nm:"EyeR"},
+        {ty:"fl", c:{k:[0.15,0.15,0.15,1]}, o:{k:100}, r:1},
+        {ty:"el", p:{k:[0,14]}, s:{k:[10,mouthH]}, nm:"Mouth"},
+        {ty:"fl", c:{k:[0.85,0.35,0.3,1]}, o:{k:100}, r:1}
+      ],
+      ip:0, op:totalFrames, st:0
+    },
+    // 4 - 身体
+    {
+      ddd:0, ind:4, ty:4, nm:"Body", sr:1,
+      ks:{o:{k:100}, r:{k:0}, p:bodyPos, a:{k:[0,0,0]}, s:{k:[100,100,100]}},
+      ao:0,
+      shapes:[
+        {ty:"rc", d:1, s:{k:[38,44]}, p:{k:[0,0]}, r:{k:8}, nm:"Body"},
+        {ty:"fl", c:{k:bodyColor}, o:{k:100}, r:1}
+      ],
+      ip:0, op:totalFrames, st:0
+    },
+    // 3 - 右臂
+    {
+      ddd:0, ind:3, ty:4, nm:"RArm", sr:1,
+      ks:{o:{k:100}, r:rArmRot, p:rArmPos, a:{k:[0,0,0]}, s:{k:[100,100,100]}},
+      ao:0,
+      shapes:[
+        {ty:"rc", d:1, s:{k:[10,28]}, p:{k:[0,0]}, r:{k:5}, nm:"Arm"},
+        {ty:"fl", c:{k:bodyColor}, o:{k:100}, r:1}
+      ],
+      ip:0, op:totalFrames, st:0
+    },
+    // 2 - 左臂
+    {
+      ddd:0, ind:2, ty:4, nm:"LArm", sr:1,
+      ks:{o:{k:100}, r:lArmRot, p:lArmPos, a:{k:[0,0,0]}, s:{k:[100,100,100]}},
+      ao:0,
+      shapes:[
+        {ty:"rc", d:1, s:{k:[10,28]}, p:{k:[0,0]}, r:{k:5}, nm:"Arm"},
+        {ty:"fl", c:{k:bodyColor}, o:{k:100}, r:1}
+      ],
+      ip:0, op:totalFrames, st:0
+    },
+    // 1 - 椅子
+    {
+      ddd:0, ind:1, ty:4, nm:"Chair", sr:1,
+      ks:{o:{k:100}, r:{k:0}, p:{k:[CX,168,0]}, a:{k:[0,0,0]}, s:{k:[100,100,100]}},
+      ao:0,
+      shapes:[
+        {ty:"rc", d:1, s:{k:[55,35]}, p:{k:[0,0]}, r:{k:6}, nm:"Seat"},
+        {ty:"fl", c:{k:[0.4,0.4,0.45,1]}, o:{k:100}, r:1}
+      ],
+      ip:0, op:totalFrames, st:0
+    }
+  ];
+
+  // working 状态加桌子
+  if (animType === 'working') {
+    layers.push({
+      ddd:0, ind:0, ty:4, nm:"Desk", sr:1,
+      ks:{o:{k:100}, r:{k:0}, p:{k:[CX,180,0]}, a:{k:[0,0,0]}, s:{k:[100,100,100]}},
+      ao:0,
+      shapes:[
+        {ty:"rc", d:1, s:{k:[90,8]}, p:{k:[0,0]}, r:{k:2}, nm:"DeskTop"},
+        {ty:"fl", c:{k:[0.55,0.4,0.3,1]}, o:{k:100}, r:1}
+      ],
+      ip:0, op:totalFrames, st:0
+    });
+  }
+
+  return {
+    v:"5.12.1", fr:FPS, ip:0, op:totalFrames,
+    w:W, h:H, nm:name+"-"+animType, ddd:0,
+    assets:[], layers:layers
+  };
+}
+
+// 角色配置
+var chars = [
+  {n:"dev",     l:"研发-Python", c:"#4a9eff", r:"后端开发", bc:[0.29,0.56,1.0,1],  hc:[0.18,0.36,0.75,1]},
+  {n:"ops",     l:"运维-SRE",   c:"#ff6b35", r:"线上运维", bc:[1.0,0.42,0.21,1],  hc:[0.78,0.32,0.12,1]},
+  {n:"design",  l:"设计-UI",    c:"#9b59b6", r:"界面设计", bc:[0.58,0.22,0.69,1],  hc:[0.42,0.12,0.55,1]},
+  {n:"security",l:"安全审计",   c:"#6a6a73", r:"安全审计", bc:[0.3,0.3,0.35,1],   hc:[0.15,0.15,0.18,1]},
+  {n:"data",    l:"数据分析",   c:"#38c76e", r:"数据建模", bc:[0.22,0.73,0.43,1],  hc:[0.12,0.55,0.28,1]},
+  {n:"test",    l:"测试-QA",    c:"#d9b833", r:"质量保障", bc:[0.85,0.72,0.2,1],   hc:[0.68,0.55,0.1,1]}
+];
+var sts = [
+  {k:"idle",     l:"空闲 😴"},
+  {k:"working",  l:"工作 ⌨️"},
+  {k:"thinking", l:"思考 🤔"},
+  {k:"celebrate",l:"完成 🎉"}
+];
+
+// 预生成所有动画数据
+var DATA = {};
+chars.forEach(function(ch) {
+  sts.forEach(function(st) {
+    DATA[ch.n+"-"+st.k] = mkLottie({
+      name: ch.n,
+      bodyColor: ch.bc,
+      hatColor: ch.hc,
+      animType: st.k
+    });
+  });
+});
+
+// 渲染 UI
+var grid = document.getElementById("g");
+var anims = {};
+
+chars.forEach(function(ch) {
+  var card = document.createElement("div");
+  card.className = "card";
+
+  var nm = document.createElement("div");
+  nm.className = "cname";
+  nm.style.color = ch.c;
+  nm.textContent = ch.l;
+
+  var rl = document.createElement("div");
+  rl.className = "crole";
+  rl.textContent = ch.r;
+
+  var box = document.createElement("div");
+  box.className = "anim-box";
+  box.id = "b-" + ch.n;
+
+  var tabs = document.createElement("div");
+  tabs.className = "tabs";
+
+  sts.forEach(function(st, i) {
+    var tb = document.createElement("button");
+    tb.className = "tab" + (i === 0 ? " on" : "");
+    tb.textContent = st.l;
+    tb.onclick = function() {
+      tabs.querySelectorAll(".tab").forEach(function(t){t.classList.remove("on")});
+      tb.classList.add("on");
+      showAnim(ch.n, st.k);
+    };
+    tabs.appendChild(tb);
+  });
+
+  card.appendChild(nm);
+  card.appendChild(rl);
+  card.appendChild(box);
+  card.appendChild(tabs);
+  grid.appendChild(card);
+});
+
+function showAnim(name, state) {
+  var box = document.getElementById("b-" + name);
+  if (anims[name]) { anims[name].destroy(); }
+  anims[name] = lottie.loadAnimation({
+    container: box,
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    animationData: DATA[name + "-" + state]
+  });
+}
+
+// 初始加载 idle
+chars.forEach(function(ch) { showAnim(ch.n, "idle"); });
+</script>
+</body>
+</html>

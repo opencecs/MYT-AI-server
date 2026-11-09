@@ -1,0 +1,118 @@
+# 编译产物
+bin/
+*.exe
+*.app
+*.syso
+
+# camdemo 是 go:embed 源，必须入库（例外于 bin/ 和 *.exe）
+!camdemo/
+!camdemo/**/
+
+# 依赖
+node_modules/
+frontend/dist/
+frontend/bindings/
+MYT/frontend/dist/
+MYT/frontend/bindings/
+.venv/
+
+# 构建缓存
+MYT/.task/checksum/
+
+# 运行时数据（仅匹配MYT根目录下的运行时目录）
+MYT/config/
+MYT/data/
+MYT/cache/
+MYT/logs/
+
+# 系统文件
+.DS_Store
+.thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Claude
+.claude/
+FFmpeg-n8.1/
+FFmpeg-n8.1.tar.gz
+discuss/
+
+# 备份和临时文件
+myt-client-desktop/
+myt-client-player-bak/
+MYT/test_export.html
+*.log
+
+# Hermes 打包临时文件
+hermes/patch-workspace/
+hermes/nul
+hermes/release-alpine/bundle/myt-agent-*.tar.gz
+hermes/release-alpine/custom-wheels/
+
+# 本地运行产物与工具配置（不入库）
+.zcode/
+logs/
+MYT/embedded/
+MYT/d3d11render.dll
+MYT/go_legacy_ffdecode.dll
+MYT/go_legacy.exe.WebView2/
+MYT/iscsi-storage/
+
+# 临时导出镜像目录
+Vc0a8fa1d_01-*/
+
+# 临时/备份
+MYT/go.mod.bak
+MYT/go.sum.bak
+
+# 分发包产物（不进 git）
+go_legacy_release*.zip
+
+# 工具/会话临时目录
+.omo/
+.pi-subagents/
+.playwright-mcp/
+
+# 调试临时脚本
+.dev/
+
+# LxCode session data
+.lxcode/
+
+# FFmpeg ������������Դ��+������������ҿ�����������ֻ���� ffmpeg_minimal/bin/ffmpeg.exe��
+MYT/camdemo/ffmpeg_build/
+
+# tebox 本地构建测试产物
+build-tebox-test/
+
+# 敏感调试产物与内部文档（防再犯）
+.codex/
+hermes/
+MYT/docs/
+*.pcap
+*.env
+
+# 根 camdemo/ 是开发调试残留目录，一律忽略；仅保留 embed 源目录
+# （逐段 unignore：父目录被忽略时，先恢复目录本身，子项才能生效）
+camdemo/*
+!camdemo/ffmpeg_minimal
+!camdemo/windows_pusher
+camdemo/ffmpeg_minimal/*
+!camdemo/ffmpeg_minimal/bin/
+camdemo/windows_pusher/*
+!camdemo/windows_pusher/Release_native/
+MYT/camdemo/*
+!MYT/camdemo/ffmpeg_minimal/
+!MYT/camdemo/windows_pusher/
+MYT/camdemo/ffmpeg_minimal/*
+!MYT/camdemo/ffmpeg_minimal/bin/
+MYT/camdemo/windows_pusher/*
+!MYT/camdemo/windows_pusher/Release_native/
+# ffmpeg_minimal/lib/ 静态库内嵌编译机路径，永不入库
+MYT/camdemo/ffmpeg_minimal/lib/
+!MYT/camdemo/ffmpeg_minimal/bin/ffmpeg.exe
+!MYT/camdemo/windows_pusher/Release_native/WindowsPusher.exe

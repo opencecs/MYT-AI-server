@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+@utility scrollbar-hide {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@utility scrollbar-thin {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@utility animate-fadeIn {
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* 任务进行中进度条的呼吸脉冲：周期 2.4s + ease-in-out，比 Tailwind 默认 animate-pulse (2s 线性) 更柔和，避免细进度条上忽明忽暗的闪烁感。 */
+@keyframes task-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+@utility animate-task-pulse {
+  animation: task-pulse 2.4s ease-in-out infinite;
+}
+
+/* 任务队列不定进度条的滑动循环（排队中任务）：30% 宽渐变条从左滑到右 */
+@keyframes tqslide {
+  0%   { margin-left: -30%; }
+  100% { margin-left: 100%; }
+}
+
+/* 任务队列进行中进度条的流光：窄高光带沿填充周期扫过（2.4s，与 task-pulse 同节奏） */
+.tq-sheen {
+  position: absolute; top: 0; bottom: 0; left: 0; width: 40%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.5) 50%, rgba(255,255,255,0) 100%);
+  animation: tqsheen 2.4s ease-in-out infinite;
+}
+@keyframes tqsheen {
+  0%       { transform: translateX(-110%); }
+  55%,100% { transform: translateX(300%); }
+}
+
+/* Wails 文件拖拽落点高亮：拖到带 data-file-drop-target 的区域时由运行时自动添加 */
+.file-drop-target-active {
+  outline: 2px dashed #3b82f6;
+  outline-offset: -4px;
+  background-color: rgba(59, 130, 246, 0.06);
+  border-radius: 8px;
+}
+
+/* 文件管理器栏间拖拽落点悬停态：对侧栏进入拖拽范围时高亮整个栏（FileManagerModal） */
+.fm-drop-active {
+  outline: 2px solid #a5b4fc; /* indigo-300 */
+  outline-offset: -2px;
+  border-radius: 4px;
+  background-color: rgba(99, 102, 241, 0.06);
+}
+
+/* Markdown 对话排版 */
+.prose-chat { overflow-wrap: anywhere; }
+.prose-chat p { margin: 0 0 0.5em 0; overflow-wrap: anywhere; }
+.prose-chat p:last-child { margin-bottom: 0; }
+.prose-chat h1, .prose-chat h2, .prose-chat h3 { font-weight: 600; margin: 0.5em 0 0.25em; }
+.prose-chat h1 { font-size: 1.25em; }
+.prose-chat h2 { font-size: 1.1em; }
+.prose-chat h3 { font-size: 1em; }
+.prose-chat ul, .prose-chat ol { margin: 0.25em 0; padding-left: 1.5em; }
+.prose-chat li { margin: 0.15em 0; }
+.prose-chat code { font-family: ui-monospace, monospace; font-size: 0.85em; background: rgba(0,0,0,0.05); padding: 0.15em 0.3em; border-radius: 0.25em; }
+.prose-chat pre { background: #EDF1F7; padding: 0.75em; border-radius: 0.5em; overflow-x: auto; margin: 0.5em 0; border: 1px solid #E2E8F0; }
+.prose-chat pre code { background: none; padding: 0; }
+.prose-chat a { color: #3B82F6; text-decoration: underline; }
+.prose-chat blockquote { border-left: 2px solid #E2E8F0; padding-left: 0.75em; margin: 0.5em 0; color: #8B95A5; }
+.prose-chat table { border-collapse: collapse; margin: 0.5em 0; width: 100%; }
+.prose-chat th, .prose-chat td { border: 1px solid #E2E8F0; padding: 0.3em 0.6em; text-align: left; font-size: 0.85em; }
+.prose-chat th { background: rgba(0,0,0,0.03); font-weight: 600; }
+.prose-chat strong { font-weight: 600; }
+
+/* ════════ 添加设备弹窗：扫描雷达 / 分段 Tab / IP 芯片输入 ════════ */
+
+/* 扫描雷达：三环 + 中心点 + conic 扫掠。idle 静默灰、scanning 激活蓝。
+   动画仅 transform/opacity，prefers-reduced-motion 下统一降级（见文件末尾）。 */
+.scan-radar { position: relative; width: 84px; height: 84px; }
+.scan-radar__ring { position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid #cbd5e1; }
+.scan-radar__ring--2 { inset: 13px; opacity: .75; }
+.scan-radar__ring--3 { inset: 27px; opacity: .5; }
+.scan-radar__center {
+  position: absolute; left: 50%; top: 50%; width: 5px; height: 5px;
+  margin: -2.5px 0 0 -2.5px; border-radius: 50%; background: #cbd5e1;
+  transition: background .3s;
+}
+.scan-radar__sweep {
+  position: absolute; inset: 0; border-radius: 50%; opacity: 0;
+  background: conic-gradient(from 0deg at 50% 50%, #2563eb, transparent 78deg);
+  transition: opacity .3s;
+}
+.scan-radar--active .scan-radar__ring { border-color: #2563eb; }
+.scan-radar--active .scan-radar__center { background: #2563eb; }
+.scan-radar--active .scan-radar__sweep { opacity: .45; animation: scan-radar-spin 1.5s linear infinite; }
+.scan-radar__blip {
+  position: absolute; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%; background: #2563eb;
+  animation: scan-blip-in .32s cubic-bezier(.34, 1.4, .5, 1) both;
+}
+.scan-radar__blip::after {
+  content: ""; position: absolute; inset: -4px;
+  border: 1.5px solid #2563eb; border-radius: 50%;
+  animation: scan-blip-ping 1.6s ease-out infinite;
+}
+@keyframes scan-radar-spin { to { transform: rotate(360deg); } }
+@keyframes scan-blip-in {
+  from { transform: scale(0); }
+  70% { transform: scale(1.35); }
+  to { transform: scale(1); }
+}
+@keyframes scan-blip-ping {
+  from { transform: scale(.5); opacity: .9; }
+  to { transform: scale(2.1); opacity: 0; }
+}
+
+/* 分段 Tab：滑动指示器（两段等宽） */
+.add-seg {
+  position: relative; display: grid; grid-template-columns: 1fr 1fr;
+  background: #eef1f5; border-radius: 10px; padding: 3px;
+}
+.add-seg__ind {
+  position: absolute; top: 3px; bottom: 3px; left: 3px;
+  width: calc((100% - 6px) / 2);
+  background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(23, 32, 54, .1);
+  transition: transform .26s cubic-bezier(.2, .8, .2, 1);
+}
+.add-seg[data-tab="manual"] .add-seg__ind { transform: translateX(100%); }
+.add-seg__btn {
+  position: relative; z-index: 1; padding: 7px 0;
+  font-size: 13px; font-weight: 500; color: #67717f; border-radius: 8px;
+  transition: color .2s;
+}
+.add-seg__btn.active { color: #1c2530; }
+
+/* IP 芯片输入：外框是唯一的输入框。
+   空态输入行垂直居中、占满整行显示占位符；有芯片后内嵌输入区收缩为行内光标位
+   （宽度由 React 按 ch 内联设置），不再呈现为嵌套的第二输入框。 */
+.add-chipbox {
+  display: flex; flex-wrap: wrap; align-content: flex-start; gap: 6px;
+  min-height: 72px; max-height: 184px; overflow-y: auto;
+  padding: 8px; cursor: text;
+  border: 1px solid #e4e8ee; border-radius: 8px; background: #fff;
+  transition: border-color .15s, box-shadow .15s;
+}
+.add-chipbox:focus-within { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, .16); }
+.add-chipbox:not(.add-chipbox--has-chips) { align-content: center; }
+.add-chipbox:not(.add-chipbox--has-chips) .add-chip-input { flex: 1; }
+.add-chipbox--has-chips .add-chip-input { flex: 0 0 auto; }
+.add-chipbox--has-chips .add-chip-input::placeholder { color: transparent; }
+.add-chip-input {
+  height: 26px; border: none; outline: none; background: none;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 13px; color: #1c2530;
+}
+.add-chip-input::placeholder { color: #98a1ae; opacity: .75; }
+/* 内嵌输入区不出自己的焦点描边：焦点状态由外框（:focus-within 变蓝 + 光环）表达 */
+.add-chip-input:focus, .add-chip-input:focus-visible { outline: none; }
+.add-chip {
+  display: inline-flex; align-items: center; gap: 2px; height: 26px;
+  padding: 0 3px 0 10px; border-radius: 8px; background: #f1f3f6;
+  animation: add-chip-in .22s cubic-bezier(.16, 1, .3, 1) both;
+}
+.add-chip__text {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 12.5px; color: #1c2530;
+}
+.add-chip button {
+  width: 20px; height: 20px; border-radius: 5px; color: #67717f;
+  display: flex; align-items: center; justify-content: center;
+}
+.add-chip button:hover:not(:disabled) { background: #e4e8ee; color: #1c2530; }
+.add-chip button:disabled { opacity: .4; cursor: not-allowed; }
+.add-chip--invalid { background: #fbeeed; }
+.add-chip--invalid .add-chip__text, .add-chip--invalid button { color: #b3392f; }
+@keyframes add-chip-in {
+  from { opacity: 0; transform: scale(.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* 动画降级：系统开启减少动态效果时，停用添加设备弹窗的持续动画
+   （雷达扫掠/旋转、blip 脉冲、芯片进场），一次性动画立即结束到终态。 */
+@media (prefers-reduced-motion: reduce) {
+  .scan-radar--active .scan-radar__sweep,
+  .scan-radar__blip,
+  .scan-radar__blip::after,
+  .add-chip,
+  .add-seg__ind,
+  .tq-sheen {
+    animation-duration: .01ms;
+    animation-iteration-count: 1;
+    transition-duration: .01ms;
+  }
+}

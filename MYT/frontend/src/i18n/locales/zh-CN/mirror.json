@@ -1,0 +1,76 @@
+{
+  "v2": {
+    "selectHost": "请选择主机",
+    "tab_source": "镜像源",
+    "tab_host": "主机镜像",
+    "pull": "拉取到主机",
+    "pulling": "拉取中…",
+    "pullDone": "镜像已拉取到主机：{{name}}",
+    "delete": "删除",
+    "deleteTitle": "删除主机镜像",
+    "deleteConfirm": "确定删除主机镜像 {{tag}} 吗？该操作不可恢复。",
+    "deleteDone": "镜像已删除",
+    "prune": "清理悬空镜像",
+    "pruneTitle": "清理悬空镜像",
+    "pruneConfirm": "将删除主机上所有未被任何容器引用的悬空镜像层，确定继续吗？",
+    "pruneDone": "悬空镜像已清理",
+    "emptySource": "镜像源列表为空",
+    "emptyHost": "主机上暂无镜像",
+    "containersUsing": "{{count}} 个容器使用"
+  },
+  "title": "镜像管理",
+  "tab": {
+    "online": "在线镜像",
+    "downloaded": "已下载"
+  },
+  "filter": {
+    "all": "全部",
+    "seriesQRC": "Q/R/C 系列",
+    "seriesP": "P 系列",
+    "emulator": "模拟器",
+    "container": "容器"
+  },
+  "table": {
+    "androidVersion": "安卓版本",
+    "updateContent": "更新内容",
+    "downloadTime": "下载时间"
+  },
+  "count": {
+    "online": "共 {{count}} 个镜像",
+    "downloaded": "共 {{count}} 个已下载镜像"
+  },
+  "empty": {
+    "noDownloaded": "暂无已下载的镜像"
+  },
+  "push": {
+    "title": "推送镜像到设备",
+    "searchPlaceholder": "搜索 IP / 备注 / 类型",
+    "selected": "已选 {{count}}",
+    "ipAddress": "IP 地址",
+    "diskSpace": "磁盘空间",
+    "pushToDevices": "推送到 {{count}} 台设备"
+  },
+  "deviceImage": {
+    "expand": "查看设备镜像",
+    "collapse": "收起设备镜像",
+    "selectDevice": "选择设备",
+    "empty": "该设备暂无镜像",
+    "confirmDelete": "确定要从设备 {{ip}} 删除镜像 {{image}} 吗？"
+  },
+  "upload": {
+    "progress": "推送进度",
+    "cancelAll": "全部取消"
+  },
+  "download": {
+    "extract": "解压",
+    "download": "下载",
+    "clickToCancel": "点击取消"
+  },
+  "confirm": {
+    "deleteMessage": "确定要删除该已下载的镜像记录吗？"
+  },
+  "toast": {
+    "openDirFailed": "打开目录失败",
+    "pushAdded": "已添加推送镜像任务到 {{count}} 台设备"
+  }
+}

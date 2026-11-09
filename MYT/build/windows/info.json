@@ -1,0 +1,15 @@
+{
+	"fixed": {
+		"file_version": "4.1.2"
+	},
+	"info": {
+		"0000": {
+			"ProductVersion": "4.1.2",
+			"CompanyName": "MoYunTeng",
+			"FileDescription": "魔云腾-AI 桌面客户端",
+			"LegalCopyright": "© 2026 魔云腾 (MoYunTeng)",
+			"ProductName": "魔云腾-AI",
+			"Comments": "www.opencecs.com"
+		}
+	}
+}

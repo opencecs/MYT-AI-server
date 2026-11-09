@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low Poly Classroom Assets
+* source:	https://sketchfab.com/3d-models/low-poly-classroom-assets-3cdd052414544149a1f4edff9d9198c3
+* author:	Paolo Mercogliano (https://sketchfab.com/paolo.mercoglia)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low Poly Classroom Assets" (https://sketchfab.com/3d-models/low-poly-classroom-assets-3cdd052414544149a1f4edff9d9198c3) by Paolo Mercogliano (https://sketchfab.com/paolo.mercoglia) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

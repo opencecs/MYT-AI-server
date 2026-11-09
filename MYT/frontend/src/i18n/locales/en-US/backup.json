@@ -1,0 +1,41 @@
+{
+  "selectDevice": "Please select a device first",
+  "subTab": { "phoneModel": "Phone Model Backups", "android": "Cloud Phone Backups" },
+  "phoneModel": {
+    "exportModel": "Export", "importModel": "Import",
+    "exportTitle": "Export Model", "importTitle": "Import Model",
+    "suffixPlaceholder": "Backup suffix",
+    "exportSuccess": "Exported successfully", "importSuccess": "Imported successfully",
+    "empty": "No model backups", "noContainer": "No cloud phones on this device",
+    "backupList": "Backup List", "delete": "Delete", "deleteSuccess": "Deleted successfully"
+  },
+  "android": {
+    "deviceMode": "Device", "localMode": "Local",
+    "slot": "Slot {{n}}", "idle": "Idle",
+    "export": "Export", "import": "Import", "switchBackup": "Restore Backup",
+    "switchBackupTitle": "Restore Backup · Slot {{n}}",
+    "exportTitle": "Export Phone",
+    "exportNameLabel": "Export name",
+    "exportNamePlaceholder": "Leave empty to auto-generate (without .tar.gz suffix)",
+    "exportDeviceHint": "Backup will be stored on the device, not downloaded",
+    "exportLocalHint": "Backup will be exported and downloaded to local PC",
+    "exportDeviceSuccess": "Exported (stored on device)",
+    "exportLocalSuccess": "Exported and downloaded",
+    "importTitle": "Import to Slot {{n}}",
+    "importSuccess": "Imported successfully",
+    "backupList": "Device Backup List", "localBackupList": "Local Backup List",
+    "empty": "No backups",
+    "searchPlaceholder": "Search backups...",
+    "newName": "Name after import", "newNamePlaceholder": "Leave empty to use original name",
+    "startAfterImport": "Start after import", "keepMac": "Keep original MAC address",
+    "download": "Download", "delete": "Delete",
+    "deleteConfirmTitle": "Confirm Delete Backup",
+    "deleteConfirmMessage": "Delete backup \"{{name}}\"? This cannot be undone.",
+    "downloadTitle": "Download Backup",
+    "deleteAfterDownloadHint": "Delete the backup on device after download?",
+    "downloadAndDelete": "Download & Delete", "downloadOnly": "Download Only",
+    "downloadSuccess": "Downloaded successfully", "deleteSuccess": "Deleted successfully",
+    "openLocalDir": "Local Backup Folder", "openLocalDirFailed": "Failed to open local backup folder",
+    "allMachines": "All Phones", "slotMachinesTitle": "All Phones in Slot {{n}}"
+  }
+}
